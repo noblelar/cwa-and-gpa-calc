@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleModule from "./module";
-import { modules } from "@/components/utils";
-import { Semester } from "@/components/utils/types";
+import { modules } from "@/components/utilsA";
+import { Semester } from "@/components/utilsA/types";
 
 const CourseModules = ({ sem }: { sem: string }) => {
   const [moduleWeight, setModuleWeight] = useState<number>();
@@ -54,7 +54,7 @@ const CourseModules = ({ sem }: { sem: string }) => {
         <td className="px-6 py-4 text-center">Column</td>
         <td className="px-6 py-4 text-center">Column</td>
       </tr> */}
-      
+
     </tbody>
   );
 };
