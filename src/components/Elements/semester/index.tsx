@@ -1,6 +1,10 @@
 import React from "react";
 import CourseModules from "../coursemodule";
 
+const sems = ["a"];
+
+
+
 const Semester = () => {
   return (
     <table className="relative w-full border">
@@ -16,14 +20,35 @@ const Semester = () => {
             Score
           </th>
           <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
-            Grade
+            Weighted Score
           </th>
           <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
-            Weighted Score
+            Grade
           </th>
         </tr>
       </thead>
-      <CourseModules/>
+
+      <CourseModules sem={sems[0]} />
+
+      <tfoot>
+      <tr>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            Semester Totals
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            19
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            Semester Average
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            1872
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            Grade
+          </th>
+        </tr>
+      </tfoot>
       {/* <thead>
         <tr>
           <th className="sticky top-0 px-6 py-3 text-green-900 bg-green-300">
