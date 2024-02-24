@@ -1,4 +1,4 @@
-import { Module } from "@/components/utilsA/types";
+import { Module } from "@/components/utils/types";
 import React, { useEffect, useState } from "react";
 
 function Grade(score: any) {

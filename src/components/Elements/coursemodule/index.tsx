@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleModule from "./module";
-import { modules } from "@/components/utilsA";
-import { Semester } from "@/components/utilsA/types";
+import { modules } from "@/components/utils";
+import { Semester } from "@/components/utils/types";
 
 const CourseModules = ({ sem }: { sem: string }) => {
   const [moduleWeight, setModuleWeight] = useState<number>();
