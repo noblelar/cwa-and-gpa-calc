@@ -26,7 +26,7 @@ function Grade(score: any) {
       colorCode = "#FF0000"; // Red color for grade F
       break;
     default:
-      grade = "Invalid Input"; // Not sure what "1" represents in your original code
+      grade = "Invalid Score"; // Not sure what "1" represents in your original code
       colorCode = "#000000"; // Default color black
   }
   return { grade: grade, color: colorCode };
@@ -35,29 +35,33 @@ function Grade(score: any) {
 const SingleModule = ({
   module,
   onChange,
+  arKey,
+  count,
 }: {
   module: Module;
   onChange: any;
+  arKey: any;
+  count: number;
 }) => {
-  const [score, setScore] = useState<number | any>(0);
+  const [score, setScore] = useState<number | any>();
   const [grade, setGrade] = useState<string | null>("NA");
   const [gradeColor, setGradeColor] = useState<string>("#000");
   const [weightedScore, setWeightedScore] = useState<number>(0);
 
   const handleChange = (event: { target: { value: any } }) => {
     const { value } = event.target;
+    arKey(count);
     setScore(value);
     onChange(value); // Invoke the callback function with the input value
   };
 
   useEffect(() => {
     setGrade(Grade(score).grade);
+
     setGradeColor(`!text-[${Grade(score).color}]`);
 
-    // console.log(Grade(score).color);
-    // console.log(gradeColor);
-
     setWeightedScore(score * Number(module.c_hours));
+    // console.log(count);
   }, [score, setScore, module.c_hours]);
 
   return (
