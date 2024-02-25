@@ -37,11 +37,13 @@ const SingleModule = ({
   onChange,
   arKey,
   count,
+  credit
 }: {
   module: Module;
   onChange: any;
   arKey: any;
   count: number;
+  credit: any;
 }) => {
   const [score, setScore] = useState<number | any>();
   const [grade, setGrade] = useState<string | null>("NA");
@@ -52,6 +54,7 @@ const SingleModule = ({
     const { value } = event.target;
     arKey(count);
     setScore(value);
+    credit(module.c_hours);
     onChange(value); // Invoke the callback function with the input value
   };
 
