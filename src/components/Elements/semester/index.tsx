@@ -26,7 +26,7 @@ const Semester = ({ sem }: { sem: string }) => {
         </tr>
       </thead>
 
-      <CourseModules sem={sem} />
+      <CourseModules sem={sem} onChange={undefined} />
 
       <tfoot>
         <tr>
