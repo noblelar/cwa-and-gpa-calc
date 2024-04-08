@@ -1,7 +1,6 @@
 import React from "react";
 import Semester from "../Elements/semester";
-import { Module } from "module";
-import SingleModule from "../Elements/coursemodule/module";
+
 
 const sems = ["a", "b", "e"];
 
