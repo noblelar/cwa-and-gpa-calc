@@ -126,6 +126,10 @@ const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
         <td className="px-6 py-4 text-center">Column</td>
         <td className="px-6 py-4 text-center">Column</td>
       </tr> */}
+
+      
+
+
     </tbody>
   );
 };
