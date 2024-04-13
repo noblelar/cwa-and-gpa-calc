@@ -57,6 +57,7 @@ const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
       }
     }, 0);
 
+
   console.log(sumSemWeigh());
 
   // ! useMemo Used here to memorise the total Semter Credit and only recalculate when the the modules supplied change
