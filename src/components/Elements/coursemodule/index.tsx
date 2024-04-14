@@ -2,17 +2,36 @@ import React, { useEffect, useMemo, useState } from "react";
 import SingleModule from "./module";
 import { modules } from "@/components/utils";
 
-import { Semester } from "@/components/utils/types";
+
+import { Module, Semester } from "@/components/utils/types";
 
 // const semWeights: Array<number> = [];
 
-const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
+const CourseModules = ({ semdata, semcount, onChange }: { semdata: Module[]; semcount: number; onChange: any }) => {
   const [moduleWeight, setModuleWeight] = useState<number>();
   const [ind, setIndex] = useState<number>(0);
   const [credit, setCredit] = useState<number>(0);
   const [semWeightTotal, setSemWeightTotal] = useState<number>();
   // const mods = useState(modules);
   const [semWeightArr, setSemWeightArr] = useState<number[]>([]);
+
+
+  // const countModulesfortheSem = (mods : Module[], sem: string) => {
+  //   return mods.filter(item => item.period === sem).length;
+  // };
+
+  // // ! Initialize the array with a fixed size
+  // const [fixedArray, setFixedArray] = useState(Array.from({ length: 5 }, () => null));
+
+  //   // Function to update a specific index in the array
+  //   const updateArrayAtIndex = (index: number, value: null) => {
+  //     setFixedArray(prevArray => {
+  //       const newArray = [...prevArray];
+  //       newArray[index] = value;
+  //       return newArray;
+  //     });
+  //   };
+ 
 
   const handleInputChange = (value: any) => {
     setModuleWeight(value * credit);
@@ -32,6 +51,7 @@ const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
       return curr;
     });
 
+    // console.log(sem);
     console.log(semWeightArr, "Recognise");
 
 
@@ -63,19 +83,19 @@ const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
   // ! useMemo Used here to memorise the total Semter Credit and only recalculate when the the modules supplied change
   //  This is to improve performance during re-rendering
   const totalSemCredit = useMemo(() => {
-    const semModules = modules.filter((module) => module.period === sem);
-    const totalcredits = semModules.reduce(
+    // const semModules = modules.filter((module) => module.period === sem);
+    const totalcredits = semdata.reduce(
       (acc, module) => acc + Number(module.c_hours),
       0
     );
     console.log(totalcredits);
     return totalcredits;
-  }, [modules]);
+  }, [semdata]);
 
   return (
     <tbody className="divide-y bg-red-100">
-      {modules.map((mod, m) => {
-        if (mod.period == sem) {
+      {semdata.map((mod, m) => {
+        // if (mod.period == sem) {
           // setIndex(m);
           return (
             <SingleModule
@@ -87,7 +107,7 @@ const CourseModules = ({ sem, onChange }: { sem: string; onChange: any }) => {
               credit={setCredit}
             />
           );
-        }
+        // }
       })}
 
       <input

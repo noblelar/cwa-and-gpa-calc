@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CourseModules from "../coursemodule";
+import { Module } from "@/components/utils/types";
+import { count } from "console";
+import { modules } from "@/components/utils";
 
-const sems = ["b", "e"];
+// const sems = ["b", "e"];
 
 const Semester = ({ sem }: { sem: string }) => {
+
+  const [mods, setMods] = useState<Module[]>([]);
+
+  const countItemsWithProperty = (modules: Module[], sem: string) => {
+    return modules.filter(item => item.period === sem);
+  };
+  console.log(sem)
+
+  useEffect(() => {
+    setMods(countItemsWithProperty(modules, sem))
+    console.log(setMods(countItemsWithProperty(modules, sem)))
+
+  }, [sem])
+
+  console.log(mods);
+  // console.log(countItemsWithProperty(modules, "a"));
   return (
     <table className="relative w-full border">
       <thead>
@@ -26,7 +45,7 @@ const Semester = ({ sem }: { sem: string }) => {
         </tr>
       </thead>
 
-      <CourseModules sem={sem} onChange={undefined} />
+      <CourseModules semcount={mods.length} semdata={mods} onChange={undefined} />
 
       <tfoot>
         <tr>
