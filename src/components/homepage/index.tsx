@@ -2,7 +2,7 @@ import React from "react";
 import Semester from "../Elements/semester";
 
 
-const sems = ["a", "b", "e"];
+const sems = ["a", "b", "c", "d", "e", "f"];
 
 
 const Homepage = () => {
