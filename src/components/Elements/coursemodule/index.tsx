@@ -36,7 +36,7 @@ const CourseModules = ({
   };
 
   useEffect(() => {
-    console.log(ind);
+    // console.log(ind);
 
     // semWeights[ind] = moduleWeight ? moduleWeight : 0;
     setSemWeightArr((curr) => {
@@ -45,9 +45,9 @@ const CourseModules = ({
     });
 
     // console.log(sem);
-    console.log(semWeightArr, "Recognise");
+    // console.log(semWeightArr, "Recognise");
 
-    // console.log(moduleWeight);
+    console.log(moduleWeight);
     // console.log(semWeights);
     setSemWeightTotal(sumSemWeigh());
   }, [moduleWeight]);
@@ -64,12 +64,12 @@ const CourseModules = ({
       }
     }, 0);
 
-  console.log(sumSemWeigh());
+  // console.log(sumSemWeigh());
 
   // ! useMemo Used here to memorise the total Semter Credit and only recalculate when the the modules supplied change
-  //  This is to improve performance during re-rendering
+  //  This is to improve performance during re-rendering 
   const totalSemCredit = useMemo(() => {
-    // const semModules = modules.filter((module) => module.period === sem);
+    // const semModules = modules.filter((module) => module.period === sem); 
     const totalcredits = semdata.reduce(
       (acc, module) => acc + Number(module.c_hours),
       0
@@ -78,11 +78,10 @@ const CourseModules = ({
     return totalcredits;
   }, [semdata]);
 
+
   return (
     <tbody className="divide-y bg-red-100">
       {semdata.map((mod, m) => {
-        // if (mod.period == sem) {
-        // setIndex(m);
         return (
           <SingleModule
             key={m}
@@ -93,7 +92,6 @@ const CourseModules = ({
             credit={setCredit}
           />
         );
-        // }
       })}
 
       <input

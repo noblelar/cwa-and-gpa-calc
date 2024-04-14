@@ -1,27 +1,31 @@
 import React, { useCallback, useEffect, useState } from "react";
 import CourseModules from "../coursemodule";
 import { Module } from "@/components/utils/types";
-import { count } from "console";
 import { modules } from "@/components/utils";
 
 // const sems = ["b", "e"];
 
 const Semester = ({ sem }: { sem: string }) => {
-
   const [mods, setMods] = useState<Module[]>([]);
+  const [semTotalWeight, setSemTotalWeight] = useState<any>(0);
 
   const countItemsWithProperty = (modules: Module[], sem: string) => {
-    return modules.filter(item => item.period === sem);
+    return modules.filter((item) => item.period === sem);
   };
-  console.log(sem)
+  // console.log(sem)
 
   useEffect(() => {
-    setMods(countItemsWithProperty(modules, sem))
-    console.log(setMods(countItemsWithProperty(modules, sem)))
+    setMods(countItemsWithProperty(modules, sem));
+    // console.log(setMods(countItemsWithProperty(modules, sem)))
+  }, [sem]);
 
-  }, [sem])
+  useEffect(() => {});
 
-  console.log(mods);
+  const handleSemTotalChange = (value: any) => {
+    setSemTotalWeight(value);
+  };
+
+  // console.log(mods);
   // console.log(countItemsWithProperty(modules, "a"));
   return (
     <table className="relative w-full border">
@@ -45,7 +49,11 @@ const Semester = ({ sem }: { sem: string }) => {
         </tr>
       </thead>
 
-      <CourseModules semcount={mods.length} semdata={mods} onChange={undefined} />
+      <CourseModules
+        semcount={mods.length}
+        semdata={mods}
+        onChange={handleSemTotalChange}
+      />
 
       <tfoot>
         <tr>
@@ -54,13 +62,28 @@ const Semester = ({ sem }: { sem: string }) => {
           </th>
           <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">19</th>
           <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
-            Semester Average
+            Semester Total Weight
           </th>
           <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            {semTotalWeight}
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
+            Input Space
+          </th>
+        </tr>
+        <tr>
+          <th className="sticky top-0 px-6 py-3 text-white bg-blue-600">
+            Semester Weigted Average
+          </th>
+          <th className="sticky top-0 px-6 py-3 text-white bg-blue-600">19</th>
+          <th className="sticky top-0 px-6 py-3  text-white bg-green-800">
+            Cummulative Weigted Average
+          </th>
+          <th
+            className="sticky top-0 px-6 py-3 text-white bg-green-800 "
+            colSpan={2}
+          >
             1872
-          </th>
-          <th className="sticky top-0 px-6 py-3 text-red-900 bg-red-300">
-            Grade
           </th>
         </tr>
       </tfoot>
