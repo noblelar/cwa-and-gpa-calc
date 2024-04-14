@@ -13,7 +13,9 @@ const CourseModules = ({ semdata, semcount, onChange }: { semdata: Module[]; sem
   const [credit, setCredit] = useState<number>(0);
   const [semWeightTotal, setSemWeightTotal] = useState<number>();
   // const mods = useState(modules);
-  const [semWeightArr, setSemWeightArr] = useState<number[]>([]);
+  const [semWeightArr, setSemWeightArr] = useState<number[]>(new Array(semcount).fill(0));
+
+  // const [semCount, setSemCount] = useState(semcount);
 
 
   // const countModulesfortheSem = (mods : Module[], sem: string) => {
