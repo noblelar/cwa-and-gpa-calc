@@ -4,8 +4,6 @@ import { modules } from "@/components/utils";
 
 import { Module, Semester } from "@/components/utils/types";
 
-// const semWeights: Array<number> = [];
-
 const CourseModules = ({
   semdata,
   semcount,
@@ -36,20 +34,13 @@ const CourseModules = ({
   };
 
   useEffect(() => {
-    // console.log(ind);
-
-    // semWeights[ind] = moduleWeight ? moduleWeight : 0;
     setSemWeightArr((curr) => {
       curr[ind] = moduleWeight ? moduleWeight : 0;
       return curr;
     });
-
-    // console.log(sem);
-    // console.log(semWeightArr, "Recognise");
-
     console.log(moduleWeight);
-    // console.log(semWeights);
     setSemWeightTotal(sumSemWeigh());
+
   }, [moduleWeight]);
 
   useEffect(() => {}, [semWeightArr]);
