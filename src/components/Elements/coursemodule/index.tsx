@@ -17,11 +17,12 @@ const CourseModules = ({
   const [ind, setIndex] = useState<number>(0);
   const [credit, setCredit] = useState<number>(0);
   const [semWeightTotal, setSemWeightTotal] = useState<number>();
-  // const mods = useState(modules);
+
   const [semWeightArr, setSemWeightArr] = useState<number[]>(
     new Array(semcount).fill(null)
   );
-
+  
+  // const mods = useState(modules);
   // const [semCount, setSemCount] = useState(semcount);
 
   const handleInputChange = (value: any) => {
@@ -42,8 +43,10 @@ const CourseModules = ({
     setSemWeightTotal(sumSemWeigh());
 
   }, [moduleWeight]);
+  console.log(semWeightArr)
 
-  useEffect(() => {}, [semWeightArr]);
+  useEffect(() => {
+  }, [semWeightArr]);
 
   const sumSemWeigh = () =>
     semWeightArr.reduce((acc, currentValue) => {
@@ -91,37 +94,6 @@ const CourseModules = ({
         onChange={handleInputChange}
         value={semWeightTotal}
       />
-
-      {/* <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr>
-      <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr>
-      <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr>
-      <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr>
-      <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr>
-      <tr>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-        <td className="px-6 py-4 text-center">Column</td>
-      </tr> */} 
       
     </tbody>
   );

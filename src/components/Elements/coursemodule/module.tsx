@@ -26,7 +26,7 @@ function Grade(score: any) {
       colorCode = "#FF0000"; // Red color for grade F
       break;
     default:
-      grade = "Invalid Score"; // Not sure what "1" represents in your original code
+      grade = "G"; // Not sure what "1" represents in your original code
       colorCode = "#000000"; // Default color black
   }
   return { grade: grade, color: colorCode };
@@ -87,8 +87,8 @@ const SingleModule = ({
         </form>
       </td>
 
-      <td className="px-6 py-4 text-center"> {weightedScore} </td>
-      <td className={`px-6 py-4 text-center ${gradeColor} `}>{grade}</td>
+      <td className="px-6 py-4 text-center"> {weightedScore ? weightedScore : 0} </td>
+      <td className={`px-6 py-4 text-center ${gradeColor} `}>{grade == "G"? "F" : grade}</td>
     </tr>
   );
 };
