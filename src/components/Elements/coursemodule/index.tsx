@@ -90,7 +90,7 @@ const CourseModules = ({
 
       <input
         type="hidden"
-        name=""
+        name="hid"
         onChange={handleInputChange}
         value={semWeightTotal}
       />
