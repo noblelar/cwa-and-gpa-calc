@@ -4,7 +4,7 @@ import Semester from "../Elements/semester";
 
 const sems = ["a", "b", "c", "d", "e", "f"];
 
-
+// ! Semester is Looped here
 const Homepage = () => {
   return (
     <div className=" container m-auto">
