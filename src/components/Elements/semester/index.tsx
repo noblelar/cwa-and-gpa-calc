@@ -25,8 +25,7 @@ const Semester = ({ sem }: { sem: string }) => {
     setSemTotalWeight(value);
   };
 
-  // console.log(mods);
-  // console.log(countItemsWithProperty(modules, "a"));
+  
   return (
     <table className="relative w-full border">
       <thead>
